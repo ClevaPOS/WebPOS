@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">    
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {% block javascripts %}
+            {% javascripts '@POSBundle/Resources/public/js/*' %}
+                <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
+
+        {% block stylesheets %}
+            {% stylesheets filter='cssrewrite'
+                '@POSBundle/Resources/public/css/*'%}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets%}
+        {% endblock stylesheets %}
+
+        <title></title>
+    </head>
+
+    <body>
+
+
+    </body>
+
+
+</html>

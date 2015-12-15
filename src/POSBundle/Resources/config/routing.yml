@@ -1,0 +1,7 @@
+pos_homepage:
+    path:     /
+    defaults: { _controller: POSBundle:Default:index }
+
+front_display:
+    path:     /test
+    defaults: { _controller: POSBundle:FrontDisplay:message }
