@@ -17,5 +17,5 @@ POSBundle\Entity\Categories:
 
     oneToMany:
       products:
-        targetEntity: Product
+        targetEntity: Item
         mappedBy: category

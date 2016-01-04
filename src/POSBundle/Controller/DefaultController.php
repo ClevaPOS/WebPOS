@@ -16,8 +16,8 @@ class DefaultController extends Controller
         $this->createProductAction();
         $response = $this->createRecord();
 
-        return $response;
-        //return $this->render('POSBundle:Default:index.html.twig');
+        //return $response;
+        return $this->render('POSBundle:Default:index.html.twig');
     }
 
     private function createProductAction()

@@ -1,0 +1,30 @@
+POSBundle\Entity\Item:
+    type: entity
+    table: null
+    repositoryClass: POSBundle\Repository\ItemRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+
+    fields:
+        name:
+            type: string
+            length: 100
+        price:
+            type: decimal
+            scale: 2
+        description:
+            type: text
+
+    manyToOne:
+        categories:
+            targetEntity: Categories
+            inversedBy: item
+            joinColumn:
+              name: item_id
+              referencedColumnnName: id
+
+    lifecycleCallbacks: {  }
