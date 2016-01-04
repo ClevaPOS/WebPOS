@@ -18,4 +18,4 @@ POSBundle\Entity\Categories:
     oneToMany:
       products:
         targetEntity: Item
-        mappedBy: category
+        mappedBy: categories

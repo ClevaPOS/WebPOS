@@ -39,7 +39,7 @@
             $category = $this->getDoctrine()
                 ->getRepository('POSBundle:Categories')
                 ->findAll();
-            dump($category);
+            //dump($category);
             if (!$category) {
                 throw $this->createNotFoundException(
                     'No Cateogry is availabe '
@@ -55,6 +55,8 @@
          */
         function deleteCategory($categories)
         {
+            $item = '';
+
             $em = $this->getDoctrine()->getManager();
 
             if (!$categories)
@@ -66,9 +68,12 @@
             } else {
                 foreach ($categories as $category )
                 {
+                    $em = $this->getDoctrine()->getManager();
+                    $item = $em->getRepository('POSBundle:Categories')->find($category->getId());
+                    dump($item);
                     dump($category->getId());
-//                    $em->remove($category->getId());
-//                    $em->flush();
+                    $em->remove($item);
+                    $em->flush();
                 }
             }
 

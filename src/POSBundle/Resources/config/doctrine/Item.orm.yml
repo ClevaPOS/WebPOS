@@ -26,5 +26,7 @@ POSBundle\Entity\Item:
             joinColumn:
               name: category_id
               referencedColumnnName: id
+              onDelete: set null
+
 
     lifecycleCallbacks: {  }
