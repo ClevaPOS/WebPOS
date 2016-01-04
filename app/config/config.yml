@@ -2,7 +2,6 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: "@POSBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -33,12 +32,6 @@ framework:
     http_method_override: true
 
 # Twig Configuration
-assetic:
-    debug:          "%kernel.debug%"
-    use_controller: false
-    bundles:        [ POSBundle ]
-    filters:
-        cssrewrite: ~
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
@@ -47,11 +40,11 @@ twig:
 doctrine:
     dbal:
         driver:   pdo_mysql
-        host:     "localhost"
-        port:     "3306"
-        dbname:   "testproject"
-        user:     "root"
-        password: ""
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
         charset:  UTF8
         # if using pdo_sqlite as your database driver:
         #   1. add the path in parameters.yml
@@ -72,3 +65,10 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+assetic:
+    debug:          "%kernel.debug%"
+    use_controller: false
+    bundles:        [ POSBundle ]
+    filters:
+        cssrewrite: ~

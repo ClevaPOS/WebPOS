@@ -5,3 +5,8 @@ pos_homepage:
 front_display:
     path:     /test
     defaults: { _controller: POSBundle:FrontDisplay:message }
+
+pos_admin:
+    path:   /admin/items
+    defaults: { _controller: POSBundle:POSAdmin:manageItem }
+

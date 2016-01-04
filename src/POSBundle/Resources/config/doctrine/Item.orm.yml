@@ -24,7 +24,9 @@ POSBundle\Entity\Item:
             targetEntity: Categories
             inversedBy: item
             joinColumn:
-              name: item_id
+              name: category_id
               referencedColumnnName: id
+              onDelete: set null
+
 
     lifecycleCallbacks: {  }
