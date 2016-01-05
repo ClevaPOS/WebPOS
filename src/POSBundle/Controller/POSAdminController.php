@@ -22,10 +22,9 @@
 
             //$this->deleteCategory();
             $categories = $this->getCategoryList();
-            $this->deleteCategory($categories);
-            return new Response(
-                '<html><body>Test</body></html>'
-            );
+            //$this->deleteCategory($categories);
+            return $this->render('POSBundle:Default:addItem.html.twig');
+
         }
 
 
@@ -39,14 +38,16 @@
             $category = $this->getDoctrine()
                 ->getRepository('POSBundle:Categories')
                 ->findAll();
-            //dump($category);
+            dump($category);
             if (!$category) {
                 throw $this->createNotFoundException(
-                    'No Cateogry is availabe '
+                    'No Cateogry is avaiable '
                 );
             } else {
                 return $category;
             }
+
+
 
         }
 
