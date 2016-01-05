@@ -10,7 +10,7 @@ class LoadCategoryData extends AbstractFixture implements OrderedFixtureInterfac
 {
     public function load(ObjectManager $em)
     {
-        
+
     }
 
 
