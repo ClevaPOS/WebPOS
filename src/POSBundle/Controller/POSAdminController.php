@@ -23,7 +23,9 @@
             //$this->deleteCategory();
             $categories = $this->getCategoryList();
             //$this->deleteCategory($categories);
-            return $this->render('POSBundle:Default:addItem.html.twig');
+            return $this->render('POSBundle:Default:index.html.twig',
+                    array('categories' => $categories)
+                );
 
         }
 
