@@ -13,7 +13,6 @@ class DefaultController extends Controller
     {
 
 
-        $this->createProductAction();
 
         //return $response;
         return $this->render('POSBundle:Default:index.html.twig');

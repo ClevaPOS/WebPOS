@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">    
     <head>
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         {% block javascripts %}
@@ -16,16 +17,20 @@
             {% endstylesheets%}
         {% endblock stylesheets %}
 
-        <title></title>
+        <title>{% block title %}Test Application{% endblock %}</title>
+
     </head>
 
     <body>
 
         <section>
             <h1>test</h1>
-            {% for item in categories %}
-                {{ item.name }}<br/>
-            {% endfor %}
+
+        </section>
+
+        <section>
+            {% block content %}Test Application{% endblock %}
+
         </section>
     </body>
 
