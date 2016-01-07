@@ -13,6 +13,8 @@
     use Symfony\Component\HttpFoundation\Response;
     use POSBundle\Entity\Item;
     use POSBundle\Entity\Categories;
+    use POSBundle\Form\CategoryForm;
+
 
 
     class POSAdminController extends Controller
