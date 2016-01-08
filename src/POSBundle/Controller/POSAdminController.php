@@ -17,16 +17,32 @@
 
 
 
+
     class POSAdminController extends Controller
     {
-        function manageItemAction()
+        function manageItemAction(Request $request)
         {
 
-            //$this->deleteCategory();
+            $category = new Categories();
+            $form = $this->createForm(CategoryForm::class,$category);
+
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($user);
+                $em->flush();
+
+                return $this->redirectToRoute('admin/items');
+
+            }
+
+                //$this->deleteCategory();
             $categories = $this->getCategoryList();
             //$this->deleteCategory($categories);
             return $this->render('POSBundle:Default:admin.html.twig',
-                    array('categories' => $categories)
+                    array(  'categories' => $categories,
+                            'form' => $form->createView()
+                    )
                 );
 
         }
