@@ -8,7 +8,6 @@ POSBundle\Entity\Item:
             id: true
             generator:
                 strategy: AUTO
-
     fields:
         name:
             type: string
@@ -20,13 +19,11 @@ POSBundle\Entity\Item:
             type: text
 
     manyToOne:
-        categories:
-            targetEntity: Categories
+        category:
+            targetEntity: Category
             inversedBy: item
             joinColumn:
               name: category_id
-              referencedColumnnName: id
-              onDelete: set null
-
+              referencedColumnName: id
 
     lifecycleCallbacks: {  }

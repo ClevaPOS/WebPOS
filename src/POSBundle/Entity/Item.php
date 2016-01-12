@@ -38,9 +38,9 @@ class Item
     private $description;
 
     /**
-     * @var \POSBundle\Entity\Categories
+     * @var \POSBundle\Entity\Category
      */
-    private $categories;
+    private $category;
 
 
     /**
@@ -116,26 +116,26 @@ class Item
     }
 
     /**
-     * Set categories
+     * Set category
      *
-     * @param \POSBundle\Entity\Categories $categories
+     * @param \POSBundle\Entity\Category $category
      *
      * @return Item
      */
-    public function setCategories(\POSBundle\Entity\Categories $categories = null)
+    public function setCategory(\POSBundle\Entity\Category $category = null)
     {
-        $this->categories = $categories;
+        $this->category = $category;
 
         return $this;
     }
 
     /**
-     * Get categories
+     * Get category
      *
-     * @return \POSBundle\Entity\Categories
+     * @return \POSBundle\Entity\Category
      */
-    public function getCategories()
+    public function getCategory()
     {
-        return $this->categories;
+        return $this->category;
     }
 }

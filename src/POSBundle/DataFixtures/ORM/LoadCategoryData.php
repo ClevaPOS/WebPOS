@@ -12,6 +12,7 @@ namespace POSBundle\DataFixtures\ORM;
 
 use POSBundle\Entity\Categories;
 use Doctrine\Common\Persistence\ObjectManager;
+use POSBundle\Entity\Category;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -20,22 +21,10 @@ class LoadCategoryData extends AbstractFixture implements OrderedFixtureInterfac
 {
     public function load(ObjectManager $em)
     {
-        $category = new Categories();
+        $category = new Category();
         $category->setName('Starter');
         $em->persist($category);
 
-
-        $category_one = new Categories();
-        $category_one->setName('Soup');
-        $em->persist($category_one);
-
-        $category_main = new Categories();
-        $category_main->setName('Main');
-        $em->persist($category_main);
-
-        $category_desert = new Categories();
-        $category_desert->setName('Desert');
-        $em->persist($category_desert);
 
 
 

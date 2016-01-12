@@ -18,7 +18,9 @@ class CategoryForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('category',TextType::class);
+        $builder->add('category','text')
+            ->add('save', 'submit');
+
     }
 
     public function configureOptions(OptionsResolver $resolver)

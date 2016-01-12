@@ -1,0 +1,21 @@
+POSBundle\Entity\Category:
+    type: entity
+    table: category
+    repositoryClass: POSBundle\Repository\CategoryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+
+    fields:
+        name:
+          type: string
+          length: 100
+
+    item:
+        targetEntity: item
+        mappedBy: category
+
+    lifecycleCallbacks: {  }
