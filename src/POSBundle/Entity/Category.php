@@ -47,5 +47,64 @@ class Category
         $this->name = $name;
     }
 
-}
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $item;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->item = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set id
+     *
+     * @param integer $id
+     *
+     * @return Category
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Add item
+     *
+     * @param \POSBundle\Entity\item $item
+     *
+     * @return Category
+     */
+    public function addItem(\POSBundle\Entity\item $item)
+    {
+        $this->item[] = $item;
+
+        return $this;
+    }
+
+    /**
+     * Remove item
+     *
+     * @param \POSBundle\Entity\item $item
+     */
+    public function removeItem(\POSBundle\Entity\item $item)
+    {
+        $this->item->removeElement($item);
+    }
+
+    /**
+     * Get item
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getItem()
+    {
+        return $this->item;
+    }
+}

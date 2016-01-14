@@ -3,18 +3,19 @@ POSBundle\Entity\Category:
     table: category
     repositoryClass: POSBundle\Repository\CategoryRepository
     id:
-        id:
-            type: integer
-            id: true
-            generator:
-                strategy: AUTO
+      id:
+        type: integer
+        id: true
+        generator:
+        strategy: AUTO
 
     fields:
-        name:
-          type: string
-          length: 100
+      name:
+        type: string
+        length: 100
 
-    item:
+    oneToMany:
+      item:
         targetEntity: item
         mappedBy: category
 

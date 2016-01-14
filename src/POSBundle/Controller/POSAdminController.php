@@ -8,6 +8,7 @@
 
     namespace POSBundle\Controller;
 
+    use POSBundle\Entity\Category;
     use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
@@ -24,7 +25,7 @@
         function manageItemAction(Request $request)
         {
 
-//            $category = new Categories();
+            $category = new Category();
 //            $form = $this->createForm(CategoryForm::class ,$category);
 //
 //            $form->handleRequest($request);
