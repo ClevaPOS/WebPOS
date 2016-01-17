@@ -11,7 +11,6 @@
     use POSBundle\Entity\Category;
     use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-
     use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
     use Symfony\Component\HttpFoundation\Request;
     use POSBundle\Entity\Item;
@@ -25,23 +24,23 @@
         function manageItemAction(Request $request)
         {
 
+            // Build the form
             $category = new Category();
-//            $form = $this->createForm(CategoryForm::class ,$category);
-//
-//            $form->handleRequest($request);
-//            if ($form->isSubmitted() && $form->isValid()) {
-//                $em = $this->getDoctrine()->getManager();
-//                $em->persist($category);
-//                $em->flush();
-//
-//                return $this->redirectToRoute('admin/items');
-//
-//            }
+            $form = $this->createForm(CategoryForm::class ,$category);
 
-                //$this->deleteCategory();
-            //$categories = $this->getCategoryList();
-            //$this->deleteCategory($categories);
-            return $this->render('POSBundle:Default:admin.html.twig'
+            // Handle the submit - POST
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($category);
+                $em->flush();
+
+                $this->addFlash('notice', 'Congratulations, your action succeeded!');
+                return $this->redirectToRoute('pos_admin');
+            }
+
+            return $this->render('POSBundle:Default:admin.html.twig',
+                    array('form' =>$form->createView())
                 );
 
         }
@@ -54,18 +53,18 @@
          */
         function getCategoryList()
         {
-//            $category = $this->getDoctrine()
-//                ->getRepository('POSBundle:Categories')
-//                ->findAll();
-//            dump($category);
-//            if (!$category) {
-//                throw $this->createNotFoundException(
-//                    'No Cateogry is avaiable '
-//                );
-//            } else {
-//                return $category;
-//            }
-//
+            $category = $this->getDoctrine()
+                ->getRepository('POSBundle:Category')
+                ->findAll();
+            dump($category);
+            if (!$category) {
+                throw $this->createNotFoundException(
+                    'No Cateogry is avaiable '
+                );
+            } else {
+                return $category;
+            }
+
 
 
         }

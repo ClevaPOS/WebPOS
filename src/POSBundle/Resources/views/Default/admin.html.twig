@@ -4,4 +4,17 @@
 
 {% block content %}Test Hello{% endblock %}
 
- {% block category %} Category {% endblock %}
+{% block message %}
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+     <div class="alert alert-warning">{{ flashMessage }}</div>
+    {% endfor %}
+{% endblock %}
+
+
+{% block category %}
+  {{ form_start(form) }}
+  {{ form_row(form.category) }}
+
+  {{ form_end(form) }}
+
+{% endblock %}

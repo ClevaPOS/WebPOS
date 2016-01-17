@@ -24,8 +24,19 @@
     <body>
 
         <div class="container-fluid">
+
+
+            {% block message %}Test Application{% endblock %}
+
             <section>
-                <h1>test</h1>
+                {% block category %}Test Application{% endblock %}
+
+            </section>
+
+
+            <section>
+                {% block category_list %}Test Application{% endblock %}
+
 
             </section>
 
@@ -34,10 +45,7 @@
 
             </section>
 
-            <section>
-                {% block category %}Test Application{% endblock %}
 
-            </section>
 
 
         </div>

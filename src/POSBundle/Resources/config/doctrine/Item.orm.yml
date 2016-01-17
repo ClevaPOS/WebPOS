@@ -21,7 +21,7 @@ POSBundle\Entity\Item:
     manyToOne:
         category:
             targetEntity: Category
-            inversedBy: item
+            inversedBy: Item
             joinColumn:
               name: category_id
               referencedColumnName: id

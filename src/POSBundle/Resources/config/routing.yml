@@ -10,3 +10,4 @@ pos_admin:
     path:   /admin/items
     defaults: { _controller: POSBundle:POSAdmin:manageItem }
 
+

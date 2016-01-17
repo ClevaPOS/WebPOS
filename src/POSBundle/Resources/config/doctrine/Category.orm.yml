@@ -7,7 +7,7 @@ POSBundle\Entity\Category:
         type: integer
         id: true
         generator:
-        strategy: AUTO
+            strategy: AUTO
 
     fields:
       name:
@@ -16,7 +16,7 @@ POSBundle\Entity\Category:
 
     oneToMany:
       item:
-        targetEntity: item
+        targetEntity: Item
         mappedBy: category
 
     lifecycleCallbacks: {  }

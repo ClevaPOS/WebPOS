@@ -2,13 +2,15 @@
 
 namespace POSBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Category
  */
 class Category
 {
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -16,36 +18,6 @@ class Category
      * @var string
      */
     private $name;
-
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Get Name
-     *
-     * @return int
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set Name
-     *
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -75,13 +47,47 @@ class Category
     }
 
     /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Category
+     */
+    public function setCategory($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
      * Add item
      *
      * @param \POSBundle\Entity\item $item
      *
      * @return Category
      */
-    public function addItem(\POSBundle\Entity\item $item)
+    public function addItem(\POSBundle\Entity\Item $item)
     {
         $this->item[] = $item;
 
@@ -93,7 +99,7 @@ class Category
      *
      * @param \POSBundle\Entity\item $item
      */
-    public function removeItem(\POSBundle\Entity\item $item)
+    public function removeItem(\POSBundle\Entity\Item $item)
     {
         $this->item->removeElement($item);
     }
@@ -106,5 +112,26 @@ class Category
     public function getItem()
     {
         return $this->item;
+    }
+
+
+
+    public function getCategory()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Category
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
     }
 }
