@@ -15,7 +15,6 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\DependencyInjection\Container;
-use Doctrine\ORM\Mapping as ORM;
 
 
 
@@ -25,8 +24,6 @@ class CategoryForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-        $category = $this->getCategoryList();
-        dump($category);
 
         $builder
             ->add('category', TextType::class)
