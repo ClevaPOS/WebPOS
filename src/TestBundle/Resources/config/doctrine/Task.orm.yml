@@ -1,0 +1,11 @@
+TestBundle\Entity\Task:
+    type: entity
+    table: null
+    repositoryClass: TestBundle\Repository\TaskRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    lifecycleCallbacks: {  }

@@ -14,7 +14,7 @@
     use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
     use Symfony\Component\HttpFoundation\Request;
     use POSBundle\Entity\Item;
-    use POSBundle\Form\CategoryForm;
+    use POSBundle\Form\CategoryType;
 
 
 
@@ -26,7 +26,7 @@
 
             // Build the form
             $category = new Category();
-            $form = $this->createForm(CategoryForm::class ,$category);
+            $form = $this->createForm(CategoryType::class ,$category);
 
             // Handle the submit - POST
             $form->handleRequest($request);
@@ -56,7 +56,6 @@
             $category = $this->getDoctrine()
                 ->getRepository('POSBundle:Category')
                 ->findAll();
-            dump($category);
             if (!$category) {
                 throw $this->createNotFoundException(
                     'No Cateogry is avaiable '

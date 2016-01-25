@@ -19,7 +19,7 @@ use Symfony\Component\DependencyInjection\Container;
 
 
 
-class CategoryForm extends AbstractType
+class CategoryType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -27,6 +27,7 @@ class CategoryForm extends AbstractType
 
         $builder
             ->add('category', TextType::class)
+            ->add('remove', SubmitType::class, array('label' => 'Remove'))
             ->add('save', SubmitType::class, array('label' => 'Save'))
         ;
 
