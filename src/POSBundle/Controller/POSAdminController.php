@@ -15,6 +15,7 @@
     use Symfony\Component\HttpFoundation\Request;
     use POSBundle\Entity\Item;
     use POSBundle\Form\CategoryType;
+    use POSBundle\Form\CategoryRemoveType;
 
 
 
@@ -25,11 +26,19 @@
         {
 
             // Build the form
+            // Handle the submit - POST
+
             $category = new Category();
             $form = $this->createForm(CategoryType::class ,$category);
-
-            // Handle the submit - POST
             $form->handleRequest($request);
+
+            $categoryOne = new Category();
+            $categoryOne->setName('Test');
+            $form_remove = $this->createForm(CategoryRemoveType::class ,$categoryOne);
+            $form_remove->handleRequest($request);
+
+
+
             if ($form->isSubmitted() && $form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($category);
@@ -40,7 +49,8 @@
             }
 
             return $this->render('POSBundle:Default:admin.html.twig',
-                    array('form' =>$form->createView())
+                    array('form' => $form->createView(),
+                          'form_remove'=> $form_remove->createView() )
                 );
 
         }
@@ -63,8 +73,6 @@
             } else {
                 return $category;
             }
-
-
 
         }
 

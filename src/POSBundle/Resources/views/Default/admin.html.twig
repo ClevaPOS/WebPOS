@@ -14,11 +14,15 @@
 {% block category %}
   {{ form_start(form) }}
   {{ form_row(form.category) }}
-    {{ form_row(form.save) }}
+  {{ form_end(form) }}
 
-    {{ form_row(form.remove) }}
+{% endblock %}
 
-    {{ form_end(form) }}
+{% block category_list %}
+    {{ form_start(form_remove) }}
+    {{ form_row(form_remove.name) }}
+    {{ form_row(form_remove.remove) }}
 
+    {{ form_end(form_remove) }}
 
 {% endblock %}
