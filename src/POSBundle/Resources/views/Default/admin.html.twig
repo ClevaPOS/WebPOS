@@ -11,18 +11,22 @@
 {% endblock %}
 
 
-{% block category %}
-  {{ form_start(form) }}
-  {{ form_row(form.category) }}
-  {{ form_end(form) }}
-
-{% endblock %}
 
 {% block category_list %}
-    {{ form_start(form_remove) }}
-    {{ form_row(form_remove.name) }}
-    {{ form_row(form_remove.remove) }}
+    {{ form_start(form) }}
+    {# render the task's only field: description #}
 
-    {{ form_end(form_remove) }}
+    <h3>Cateogry List</h3>
+    <span></span>
+    <ul class="cateogry-list">
+        {# iterate over each existing tag and render its only field: name #}
+        {% for category in form.categories %}
+            <li>{{ form_row(category.name) }}</li>
+            <li>{{ form_widget(category.submit, { 'label': 'Remove' }) }}</li>
+        {% endfor %}
+    </ul>
+    {{ form_end(form) }}
 
 {% endblock %}
+
+

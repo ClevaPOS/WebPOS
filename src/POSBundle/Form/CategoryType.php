@@ -23,11 +23,9 @@ class CategoryType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-
-
         $builder
-            ->add('category', TextType::class)
-            ->add('save', SubmitType::class, array('label' => 'Save'))
+            ->add('name', TextType::class)
+            ->add('submit', SubmitType::class)
         ;
 
     }
@@ -38,8 +36,6 @@ class CategoryType extends AbstractType
             'data_class' => 'POSBundle\Entity\Category'
         ));
     }
-
-
 
 }
 
