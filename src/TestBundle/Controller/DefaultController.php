@@ -2,42 +2,41 @@
 
 namespace TestBundle\Controller;
 
-
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use TestBundle\Entity\Task;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use TestBundle\Entity\Tag;
+use TestBundle\Form\Type\TaskType;
+
 
 
 class DefaultController extends Controller
 {
     public function indexAction(Request $request)
     {
-        // create a task and give it some dummy data for this example
         $task = new Task();
-        $task->setTask('Write a blog post');
-        $task->setDueDate(new \DateTime('tomorrow'));
 
-        $form = $this->createFormBuilder($task)
-            ->add('task', TextType::class)
-            ->add('dueDate', DateType::class)
-            ->add('save', SubmitType::class, array('label' => 'Create Task'))
-            ->add('saveAndAdd', SubmitType::class, array('label' => 'Save and Add'))
-            ->getForm();
+        // dummy code - this is here just so that the Task has some tags
+        // otherwise, this isn't an interesting example
+        $tag1 = new Tag();
+        $tag1->name = 'tag1';
+        $task->getTags()->add($tag1);
+        $tag2 = new Tag();
+        $tag2->name = 'tag2';
+        $task->getTags()->add($tag2);
+        // end dummy code
+
+        $form = $this->createForm(TaskType::class, $task);
+
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            // ... perform some action, such as saving the task to the database
 
-            return $this->redirectToRoute('test_homepage');
+        if ($form->isValid() && $form->isSubmitted()) {
+            // ... maybe do some form processing, like saving the Task and Tag objects
         }
-
 
         return $this->render('TestBundle:Default:index.html.twig', array(
             'form' => $form->createView(),
         ));
-
 
     }
 }

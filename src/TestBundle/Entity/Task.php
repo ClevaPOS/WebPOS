@@ -8,27 +8,27 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Task
 {
-    protected $task;
-    protected $dueDate;
+    protected $description;
+    protected $tags;
 
-    public function getTask()
+    public function __construct()
     {
-        return $this->task;
+        $this->tags = new ArrayCollection();
     }
 
-    public function setTask($task)
+    public function getDescription()
     {
-        $this->task = $task;
+        return $this->description;
     }
 
-    public function getDueDate()
+    public function setDescription($description)
     {
-        return $this->dueDate;
+        $this->description = $description;
     }
 
-    public function setDueDate(\DateTime $dueDate = null)
+    public function getTags()
     {
-        $this->dueDate = $dueDate;
+        return $this->tags;
     }
 }
 
