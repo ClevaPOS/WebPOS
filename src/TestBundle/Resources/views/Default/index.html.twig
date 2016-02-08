@@ -3,7 +3,10 @@
 {# ... #}
 
     {% block javascripts %}
-        {% javascripts '@TestBundle/Resources/public/js/*' %}
+        {% javascripts  '@TestBundle/Resources/public/js/jquery-2.2.0.min.js'
+                        '@TestBundle/Resources/public/js/*'
+
+        %}
             <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
     {% endblock %}

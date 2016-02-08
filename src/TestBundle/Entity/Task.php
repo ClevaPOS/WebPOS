@@ -30,5 +30,17 @@ class Task
     {
         return $this->tags;
     }
+
+    public function addTag(Tag $tag)
+    {
+        $this->tags->add($tag);
+    }
+
+    public function removeTag(Tag $tag)
+    {
+        $this->tags->removeElement($tag);
+
+    }
+
 }
 
