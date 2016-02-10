@@ -7,17 +7,20 @@ jQuery(document).ready(function() {
 
     var $collectionHolder;
 
-// setup an "add a tag" link
+    // setup an "add a tag" link
     var $addTagLink = $('<a href="#" class="add_tag_link">Add a tag</a>');
     var $newLinkLi = $('<li></li>').append($addTagLink);
     // Get the ul that holds the collection of tags
 
-    console.log('testaa');
     $collectionHolder = $('ul.tags');
 
 
     // add the "add a tag" anchor and li to the tags ul
     $collectionHolder.append($newLinkLi);
+
+    $collectionHolder.find('li').each(function() {
+        addTagFormDeleteLink($(this));
+    });
 
     // count the current form inputs we have (e.g. 2), use that as the new
     // index when inserting a new item (e.g. 2)
@@ -31,6 +34,20 @@ jQuery(document).ready(function() {
         addTagForm($collectionHolder, $newLinkLi);
     });
 });
+
+
+function addTagFormDeleteLink($tagFormLi) {
+    var $removeFormA = $('<a href="#">delete this tag</a>');
+    $tagFormLi.append($removeFormA);
+
+    $removeFormA.on('click', function(e) {
+        // prevent the link from creating a "#" on the URL
+        e.preventDefault();
+
+        // remove the li for the tag form
+        $tagFormLi.remove();
+    });
+}
 
 
 

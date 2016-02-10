@@ -34,6 +34,7 @@ class Task
     public function addTag(Tag $tag)
     {
         $this->tags->add($tag);
+
     }
 
     public function removeTag(Tag $tag)

@@ -24,6 +24,8 @@ class TaskType extends AbstractType
         $builder->add('tags', CollectionType::class, array(
             'entry_type' => TagType::class,
             'allow_add'    => true,
+            'by_reference' => false,
+            'allow_delete' => true,
         ));
     }
 
