@@ -1,6 +1,8 @@
 {# src/AppBundle/Resources/views/Task/new.html.twig #}
 
-{# ... #}
+<html>
+
+<head>
 
     {% block javascripts %}
         {% javascripts  '@TestBundle/Resources/public/js/jquery-2.2.0.min.js'
@@ -10,10 +12,13 @@
             <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
     {% endblock %}
-
+</head>
+<body>
+{# ... #}
 {{ form_start(form) }}
-    {# render the task's only field: description #}
-    {{ form_row(form.description) }}
+{# render the task's only field: description #}
+{{ form_row(form.name) }}
+
 
 <h3>Tags</h3>
 <ul class="tags" data-prototype="{{ form_widget(form.tags.vars.prototype)|e }}">
@@ -25,3 +30,9 @@
 {{ form_end(form) }}
 
 {# ... #}
+
+
+</body>
+
+
+</html>

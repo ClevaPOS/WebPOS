@@ -29,4 +29,10 @@ class TagType extends AbstractType
             'data_class' => 'TestBundle\Entity\Tag',
         ));
     }
+
+    public function getName()
+    {
+        return 'Tag';
+    }
+
 }

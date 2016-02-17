@@ -1,29 +1,36 @@
 <?php
 
 namespace TestBundle\Entity;
+
+use TestBundle\Entity\Tag;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Task
  */
+
+
 class Task
 {
-    protected $description;
+    protected $name;
+
     protected $tags;
+
+    private $id;
 
     public function __construct()
     {
         $this->tags = new ArrayCollection();
     }
 
-    public function getDescription()
+    public function getName()
     {
-        return $this->description;
+        return $this->name;
     }
 
-    public function setDescription($description)
+    public function setName($name)
     {
-        $this->description = $description;
+        $this->name = $name;
     }
 
     public function getTags()
@@ -33,15 +40,25 @@ class Task
 
     public function addTag(Tag $tag)
     {
-        $this->tags->add($tag);
+        $tag->addTask($this);
 
+        $this->tags->add($tag);
     }
 
-    public function removeTag(Tag $tag)
+    public function removeTag(\TestBundle\Entity\Tag $tag)
     {
         $this->tags->removeElement($tag);
 
     }
 
-}
+    public function getTag()
+    {
+        return $this->tags;
+    }
 
+    public function getID()
+    {
+        return $this->id;
+    }
+
+}

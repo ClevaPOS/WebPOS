@@ -2,45 +2,26 @@
 
 namespace TestBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
+use TestBundle\Entity\Task;
 
-/**
- * Tag
- */
+
 class Tag
 {
-
     public $name;
-    protected $tasks;
 
-    /**
-     * @var int
-     */
-    private $id;
+    public $id;
 
+    private $tasks;
 
     public function __construct()
     {
         $this->tasks = new ArrayCollection();
-
     }
 
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
+    public function addTask(\TestBundle\Entity\TaskTask $task)
     {
-        return $this->id;
-    }
-
-    public function addTask(Task $task)
-    {
-        if (!$this->tasks->contains($task))
-        {
+        if (!$this->tasks->contains($task)) {
             $this->tasks->add($task);
         }
-
     }
 }
-

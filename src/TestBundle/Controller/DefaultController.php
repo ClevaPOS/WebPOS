@@ -14,25 +14,26 @@ class DefaultController extends Controller
 {
     public function indexAction(Request $request)
     {
-        $task = new Task();
 
-        // dummy code - this is here just so that the Task has some tags
-        // otherwise, this isn't an interesting example
-        $tag1 = new Tag();
-        $tag1->name = 'tag1';
-        $task->getTags()->add($tag1);
-        $tag2 = new Tag();
-        $tag2->name = 'tag2';
-        $task->getTags()->add($tag2);
         // end dummy code
+        $task = new Task();
+        $tag = new Tag();
 
+        $task->getTags()->add($tag);
         $form = $this->createForm(TaskType::class, $task);
 
+
         $form->handleRequest($request);
+        dump('test');
 
         if ($form->isValid() && $form->isSubmitted()) {
-            // ... maybe do some form processing, like saving the Task and Tag objects
+            $em = $this->getDoctrine()->getEntityManager();
+            $em->persist($task);
+            $em->flush();
+
+            return $this->redirectToRoute('test_homepage');
         }
+
 
         return $this->render('TestBundle:Default:index.html.twig', array(
             'form' => $form->createView(),
