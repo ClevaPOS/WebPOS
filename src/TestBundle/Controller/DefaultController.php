@@ -29,6 +29,7 @@ class DefaultController extends Controller
         if ($form->isValid() && $form->isSubmitted()) {
             $em = $this->getDoctrine()->getEntityManager();
             $em->persist($task);
+            $em->persist($tag);
             $em->flush();
 
             return $this->redirectToRoute('test_homepage');

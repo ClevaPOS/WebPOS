@@ -17,7 +17,7 @@ TestBundle\Entity\Tag:
     manyToOne:
         task:
             targetEntity: Task
-            inversedBy: Item
+            inversedBy: Tag
             joinColumn:
               name: task_id
               referencedColumnName: id

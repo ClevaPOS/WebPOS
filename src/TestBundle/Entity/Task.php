@@ -61,4 +61,43 @@ class Task
         return $this->id;
     }
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $item;
+
+
+    /**
+     * Add item
+     *
+     * @param \TestBundle\Entity\Tag $item
+     *
+     * @return Task
+     */
+    public function addItem(\TestBundle\Entity\Tag $item)
+    {
+        $this->item[] = $item;
+
+        return $this;
+    }
+
+    /**
+     * Remove item
+     *
+     * @param \TestBundle\Entity\Tag $item
+     */
+    public function removeItem(\TestBundle\Entity\Tag $item)
+    {
+        $this->item->removeElement($item);
+    }
+
+    /**
+     * Get item
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getItem()
+    {
+        return $this->item;
+    }
 }
