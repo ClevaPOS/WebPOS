@@ -24,7 +24,6 @@ class DefaultController extends Controller
 
 
         $form->handleRequest($request);
-        dump('test');
 
         if ($form->isValid() && $form->isSubmitted()) {
             $em = $this->getDoctrine()->getEntityManager();

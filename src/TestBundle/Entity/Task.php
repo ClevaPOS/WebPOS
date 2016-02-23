@@ -12,6 +12,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class Task
 {
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $item;
+
     protected $name;
 
     protected $tags;
@@ -38,12 +43,13 @@ class Task
         return $this->tags;
     }
 
-    public function addTag(Tag $tag)
+    public function addTag(\TestBundle\Entity\Tag $tag)
     {
         $tag->addTask($this);
 
         $this->tags->add($tag);
     }
+
 
     public function removeTag(\TestBundle\Entity\Tag $tag)
     {
@@ -56,15 +62,16 @@ class Task
         return $this->tags;
     }
 
-    public function getID()
+    public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $item;
+    public function setId($id)
+    {
+        $this->id = $id;
+
+    }
 
 
     /**

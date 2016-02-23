@@ -15,7 +15,8 @@ TestBundle\Entity\Task:
           length: 100
 
     oneToMany:
-        item:
+        tags:
           targetEntity: Tag
           mappedBy: Task
+          cascade:      [persist]
     lifecycleCallbacks: {  }

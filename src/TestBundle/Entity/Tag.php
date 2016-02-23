@@ -11,7 +11,13 @@ class Tag
 
     public $id;
 
-    private $tasks;
+    protected $tasks;
+
+    /**
+     * @var \TestBundle\Entity\Task
+     */
+    private $task;
+
 
     public function __construct()
     {
@@ -20,14 +26,8 @@ class Tag
 
     public function addTask(\TestBundle\Entity\TaskTask $task)
     {
-        if (!$this->tasks->contains($task)) {
             $this->tasks->add($task);
-        }
     }
-    /**
-     * @var \TestBundle\Entity\Task
-     */
-    private $task;
 
 
     /**
@@ -87,4 +87,6 @@ class Tag
     {
         return $this->task;
     }
+
+
 }
