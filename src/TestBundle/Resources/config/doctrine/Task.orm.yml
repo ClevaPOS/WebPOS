@@ -8,15 +8,4 @@ TestBundle\Entity\Task:
             id: true
             generator:
                 strategy: AUTO
-
-    fields:
-        name:
-          type: string
-          length: 100
-
-    oneToMany:
-        tags:
-          targetEntity: Tag
-          mappedBy: Task
-          cascade:      [persist]
     lifecycleCallbacks: {  }

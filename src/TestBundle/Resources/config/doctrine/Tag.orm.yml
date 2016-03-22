@@ -8,18 +8,4 @@ TestBundle\Entity\Tag:
             id: true
             generator:
                 strategy: AUTO
-
-    fields:
-        name:
-            type: string
-            length: 100
-
-    manyToOne:
-        task:
-            targetEntity: Task
-            inversedBy: Tag
-            joinColumn:
-              name: task_id
-              referencedColumnName: id
-
     lifecycleCallbacks: {  }

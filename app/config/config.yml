@@ -71,6 +71,6 @@ swiftmailer:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ POSBundle, TestBundle  ]
+    bundles:        [ POSBundle ]
     filters:
         cssrewrite: ~
