@@ -5,3 +5,7 @@ app_homepage:
 user_registration:
     path:     /register
     defaults: { _controller: AppBundle:Registration:register }
+
+hello:
+  path: /hello/{name}
+  defaults: { _controller: AppBundle:Hello:index }
