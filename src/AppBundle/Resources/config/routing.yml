@@ -6,6 +6,10 @@ user_registration:
     path:     /register
     defaults: { _controller: AppBundle:Registration:register }
 
+app_form:
+    path: /form
+    defaults: { _controller: AppBundle:Task:new}
+
 hello:
   path: /hello/{name}
   defaults: { _controller: AppBundle:Hello:index }
