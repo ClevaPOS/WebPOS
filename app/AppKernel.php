@@ -18,7 +18,6 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new POSBundle\POSBundle(),
             new AppBundle\AppBundle(),
-            new TestBundle\TestBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

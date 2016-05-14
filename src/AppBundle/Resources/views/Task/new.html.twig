@@ -1,0 +1,34 @@
+{# src/AppBundle/Resources/views/Task/new.html.twig #}
+
+{# ... #}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% block javascripts %}
+            {% javascripts '@AppBundle/Resources/public/js/*' %}
+            <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
+    </head>
+
+
+    <body>
+        {{ form_start(form) }}
+        {{ form_row(form.description) }}
+
+        <h3>Tags</h3>
+        <ul class="tags" data-prototype="{{ form_widget(form.tags.vars.prototype) | e }}">
+            {% for tag in form.tags %}
+                <li>{{ form_row(tag.name) }}</li>
+            {% endfor %}
+        </ul>
+        {{ form_end(form) }}
+
+        {# ... #}
+
+    </body>
+
+</html>

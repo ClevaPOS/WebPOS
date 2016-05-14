@@ -1,6 +1,6 @@
 <?php
 
-namespace TestBundle\Repository;
+namespace AppBundle\Repository;
 
 /**
  * TaskRepository

@@ -1,0 +1,20 @@
+AppBundle\Entity\Task:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\TaskRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        description:
+            type: string
+            length: 255
+    oneToMany:
+        tags:
+            targetEntity: Tag
+            mappedBy: task
+            cascade:      [persist]
+    lifecycleCallbacks: {  }
