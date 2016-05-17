@@ -1,6 +1,8 @@
 <?php
 
 namespace POSBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
+
 
 /**
  * Role

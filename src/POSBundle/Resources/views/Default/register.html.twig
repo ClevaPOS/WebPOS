@@ -1,3 +1,9 @@
 {% extends 'POSBundle:Default:index.html.twig' %}
 
-{% block form_container %}Test Hello{% endblock %}
+{% block form_container %}
+    {# renders all fields #}
+    {{ form_widget(form) }}
+
+    {# renders all fields *and* the form start and end tags #}
+    {{ form(form) }}
+{% endblock %}
