@@ -87,6 +87,11 @@ class Task
         }
     }
 
+    public function __toString()
+    {
+       return $this->description;
+    }
+
     /**
      * Remove tag
      *
@@ -96,4 +101,6 @@ class Task
     {
         $this->tags->removeElement($tag);
     }
+
+
 }

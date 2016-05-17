@@ -15,6 +15,8 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Doctrine\ORM\EntityRepository;
+
 
 
 
@@ -28,7 +30,7 @@ class TaskType extends AbstractType
         $builder->add('description', EntityType::class,array(
             'class' => 'AppBundle:Task',
             'query_builder' => function (EntityRepository $er) {
-                return $er->findAll('Description');
+                return $er->createQueryBuilder('d');
             },));
 
 

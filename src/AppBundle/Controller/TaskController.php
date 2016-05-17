@@ -20,9 +20,9 @@ class TaskController extends Controller
 {
     public function newAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $task = $em->getRepository('AppBundle:Task')
-            ->findOneByDescription('van pham');
+
+        $task = new Task();
+        $task->setDescription('test');
 
 
         $tag1 = new Tag();
@@ -38,15 +38,12 @@ class TaskController extends Controller
 
         if ($form->isValid()) {
 
-
+            $em = $this->getDoctrine()->getManager();
             $em->persist($task);
             $em->flush();
 
-
-
             return new Response('<html><head></head><body>Submitted</body></html>');
         }
-
 
         return $this->render('AppBundle:Task:new.html.twig', array(
             'form' => $form->createView(),

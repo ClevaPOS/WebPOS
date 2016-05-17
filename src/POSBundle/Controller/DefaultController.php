@@ -12,10 +12,15 @@ class DefaultController extends Controller
     public function indexAction()
     {
 
-
-
         //return $response;
         return $this->render('POSBundle:Default:index.html.twig');
+    }
+
+    public function registerAction()
+    {
+
+        return $this->render('POSBundle:Default:register.html.twig');
+
     }
 
 

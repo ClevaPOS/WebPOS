@@ -1,13 +1,12 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: thelinhuk
- * Date: 10/01/2016
- * Time: 16:48
+ * User: vphucpham
+ * Date: 5/17/16
+ * Time: 3:57 PM
  */
 
-namespace AppBundle\Form;
-
+namespace POSBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -16,6 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+
 
 class UserType extends AbstractType
 {
@@ -35,7 +35,10 @@ class UserType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\User'
+            'data_class' => 'POSBundle\Entity\User',
         ));
     }
+
+
+
 }

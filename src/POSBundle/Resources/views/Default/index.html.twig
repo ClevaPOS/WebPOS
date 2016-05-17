@@ -17,7 +17,7 @@
             {% endstylesheets%}
         {% endblock stylesheets %}
 
-        <title>{% block title %}Test Application{% endblock %}</title>
+        <title>{% block title %}{% endblock %}</title>
 
     </head>
 
@@ -26,22 +26,29 @@
         <div class="container-fluid">
 
 
-            {% block message %}Test Application{% endblock %}
+            {% block message %}{% endblock %}
+
 
             <section>
-                {% block category %}Test Application{% endblock %}
+                {% block category %}{% endblock %}
+
+            </section>
+
+            <section>
+                {% block form_container %}Test Application{% endblock %}
+
+            </section>
+
+
+
+            <section>
+                {% block category_list %}{% endblock %}
 
             </section>
 
 
             <section>
-                {% block category_list %}Test Application{% endblock %}
-
-            </section>
-
-
-            <section>
-                {% block content %}Test Application{% endblock %}
+                {% block content %}{% endblock %}
 
             </section>
 
