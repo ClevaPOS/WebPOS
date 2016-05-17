@@ -9,3 +9,7 @@ app_form:
 hello:
   path: /hello/{name}
   defaults: { _controller: AppBundle:Hello:index }
+
+create_product:
+  path: /create_product
+  defaults: { _controller: AppBundle:Default:create }
