@@ -22,7 +22,6 @@ use Doctrine\ORM\EntityRepository;
 
 
 
-
 class TaskType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)

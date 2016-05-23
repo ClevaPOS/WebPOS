@@ -17,7 +17,9 @@ class Role
 
     private $users;
 
-
+    /**
+     * @var string
+     */
     private $role;
 
 
@@ -47,9 +49,6 @@ class Role
     {
         return $this->id;
     }
-    /**
-     * @var string
-     */
 
 
     /**
@@ -108,4 +107,10 @@ class Role
     {
         $this->users->removeElement($user);
     }
+
+    public function __toString()
+    {
+        return $this->role;
+    }
+
 }

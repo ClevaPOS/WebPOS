@@ -16,7 +16,7 @@ POSBundle\Entity\User:
 
         password:
             type: string
-            length: 64
+            length: 128
 
         email:
           type: string

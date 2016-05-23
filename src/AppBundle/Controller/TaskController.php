@@ -29,6 +29,8 @@ class TaskController extends Controller
         $tag1->setName('tag1');
         $tag1->setTask($task);
 
+        $task->addTag($tag1);
+
 
 
         $form = $this->createForm(TaskType::class, $task);

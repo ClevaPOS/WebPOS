@@ -6,6 +6,7 @@ POSBundle\Entity\Role:
         id:
             type: integer
             id: true
+            unique: true
             generator:
                 strategy: AUTO
 
