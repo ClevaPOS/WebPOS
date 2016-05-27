@@ -2,14 +2,17 @@
 /**
  * Created by PhpStorm.
  * User: vphucpham
- * Date: 5/2/16
- * Time: 1:26 PM
+ * Date: 5/25/16
+ * Time: 11:59 AM
  */
 
-namespace AppBundle\Form;
+namespace AppBundle\Form\Type;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
+
 
 class TagType extends AbstractType
 {
@@ -20,10 +23,9 @@ class TagType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver)
     {
-      $resolver->setDefaults(array(
-          'data_class' => 'AppBundle\Entity\Tag',
-      ));
+        $resolver->setDefaults(array(
+            'data_class' => 'AppBundle\Entity\Tag',
+        ));
     }
-
 
 }

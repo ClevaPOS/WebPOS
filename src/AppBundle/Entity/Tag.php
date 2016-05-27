@@ -8,7 +8,7 @@ namespace AppBundle\Entity;
 class Tag
 {
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -18,11 +18,16 @@ class Tag
     private $name;
 
 
+    /**
+     * @var \AppBundle\Entity\Task
+     */
+    private $task;
+
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -53,11 +58,6 @@ class Tag
         return $this->name;
     }
 
-    /**
-     * @var \AppBundle\Entity\Task
-     */
-    private $task;
-
 
     /**
      * Set task
@@ -81,5 +81,12 @@ class Tag
     public function getTask()
     {
         return $this->task;
+    }
+
+
+    public function addTask(Task $task)
+    {
+
+        $this->setTask($task);
     }
 }

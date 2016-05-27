@@ -2,29 +2,26 @@
 /**
  * Created by PhpStorm.
  * User: vphucpham
- * Date: 5/2/16
- * Time: 2:24 PM
+ * Date: 5/27/16
+ * Time: 10:31 AM
  */
 
-namespace AppBundle\Form;
+namespace AppBundle\Form\Type;
+
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Doctrine\ORM\EntityRepository;
 
 
 
-
-
-
 class TaskType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('description', EntityType::class,array(
             'class' => 'AppBundle:Task',
@@ -32,15 +29,16 @@ class TaskType extends AbstractType
                 return $er->createQueryBuilder('d');
             },));
 
-
         $builder->add('tags', CollectionType::class, array(
             'entry_type' => TagType::class,
             'allow_add'    => true,
             'by_reference' => false,
-
         ));
+
         $builder->add('save', SubmitType::class, array('label' => 'Save'));
+
     }
+
 
     public function configureOptions(OptionsResolver $resolver)
     {

@@ -9,13 +9,19 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Task
 {
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
+    /**
+     * @var string
+     */
     private $description;
 
-    private $tags;
+    /**
+     * @var ArrayCollection
+     */
+    protected $tags;
 
 
     public function __construct()
@@ -23,33 +29,15 @@ class Task
         $this->tags = new ArrayCollection();
     }
 
-
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
     }
-
-    /**
-     * Set id
-     *
-     * @param integer $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-    }
-
-    public function getTags()
-    {
-        return $this->tags;
-    }
-
 
     /**
      * Set description
@@ -61,6 +49,7 @@ class Task
     public function setDescription($description)
     {
         $this->description = $description;
+
         return $this;
     }
 
@@ -73,24 +62,23 @@ class Task
     {
         return $this->description;
     }
-    
+
+    /**
+     * Get tags
+     *
+     * @return ArrayCollection
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
     public function addTag(Tag $tag)
     {
+        $tag->addTask($this);
         $this->tags->add($tag);
-        $tag->setTask($this);
     }
 
-    public function addTask(Task $task)
-    {
-        if (!$this->tasks->contains($task)) {
-            $this->tasks->add($task);
-        }
-    }
-
-    public function __toString()
-    {
-       return $this->description;
-    }
 
     /**
      * Remove tag
@@ -102,6 +90,11 @@ class Task
         $this->tags->removeElement($tag);
     }
 
+
+    public function __toString()
+    {
+       return (string) $this->getDescription();
+    }
 
 
 }

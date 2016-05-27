@@ -12,11 +12,15 @@ AppBundle\Entity\Tag:
         name:
             type: string
             length: 255
+
     manyToOne:
-      task:
-        targetEntity: Task
-        inversedBy: tags
-        join_column:
-          name: task_id
-          referencedColumnName: id
+        task:
+            targetEntity: Task
+            inversedBy: tags
+            joinColumn:
+                name: task_id
+                referencedColumnName: id
+            cascade: [ persist ]
+
+
     lifecycleCallbacks: {  }
