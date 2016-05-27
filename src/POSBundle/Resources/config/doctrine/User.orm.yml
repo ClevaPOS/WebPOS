@@ -1,0 +1,38 @@
+POSBundle\Entity\User:
+    type: entity
+    table: null
+    repositoryClass: POSBundle\Repository\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        username:
+            type: string
+            length: 64
+            unique: true
+
+        password:
+            type: string
+            length: 128
+
+        email:
+          type: string
+          length: 60
+          unique: true
+
+        is_active:
+          type: boolean
+
+    manyToOne:
+        role:
+          targetEntity: Role
+          inversedBy: users
+          join_column:
+            name: role_id
+            referencedColumnName: id
+
+
+    lifecycleCallbacks: {  }

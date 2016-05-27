@@ -10,5 +10,9 @@ pos_admin:
     path:   /admin/items
     defaults: { _controller: POSBundle:POSAdmin:manageItem }
 
+pos_register:
+    path: /register
+    defaults: { _controller: POSBundle:Default:register }
+
 
 

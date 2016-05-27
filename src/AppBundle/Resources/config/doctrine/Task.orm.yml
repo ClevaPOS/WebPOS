@@ -12,9 +12,11 @@ AppBundle\Entity\Task:
         description:
             type: string
             length: 255
+
     oneToMany:
         tags:
-            targetEntity: Tag
-            mappedBy: task
-            cascade:      [persist]
+          targetEntity: Tag
+          mappedBy: task
+          cascade: [ persist ]
+
     lifecycleCallbacks: {  }

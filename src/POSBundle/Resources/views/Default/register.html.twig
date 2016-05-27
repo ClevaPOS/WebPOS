@@ -1,0 +1,22 @@
+{% extends 'POSBundle:Default:index.html.twig' %}
+
+{% block form_container %}
+    {# renders all fields #}
+    {{ form_start(form) }}
+    {{ form_row(form.role) }}
+
+    <ul class="user">
+        {% for user in form.users %}
+            <li>{{ form_row(user.username) }}</li>
+            <li>{{ form_row(user.email) }}</li>
+            <li>{{ form_row(user.plainPassword) }}</li>
+           {{ form_row(user.is_active) }}
+        {% endfor %}
+    </ul>
+    {{ form_end(form) }}
+
+
+    {# renders all fields *and* the form start and end tags #}
+{% endblock %}
+
+
