@@ -22,40 +22,65 @@ class DefaultController extends Controller
 
     public function registerAction(Request $request)
     {
-        $role = new Role();
-        $role->setRole('staff');
 
+        $path = $request->getPathInfo();
 
-
-
+        $role = $this->generateRole($path);
         $user = new User();
-        $user->setUsername('Test');
 
         $user->setRole($role);
 
         $role->addUser($user);
-        $form = $this->createForm(RoleType::class, $role);
 
+        $form = $this->createForm(RoleType::class, $role);
         $form->handleRequest($request);
+
+
+
 
         if ($form->isSubmitted() && $form->isValid())
         {
-            $password = $this->get('security.password_encoder')
-                ->encodePassword($user, $user->getPlainPassword());
-            $user->setPassword($password);
-
             $em = $this->getDoctrine()->getManager();
-            $em->persist($role);
+            $data = $form->getData();
+            $role = $data->getRole();
+            $users = $data->getUsers();
+
+            foreach ($users as $user) {
+                $password = $this->get('security.password_encoder')
+                    ->encodePassword($user, $user->getPlainPassword());
+                $user->setPassword($password);
+                $user->setRole($role);
+                $em->persist($user);
+            }
             $em->flush();
         }
-
-
 
 
         return $this->render('POSBundle:Default:register.html.twig',array(
             'form' => $form->createView(),
         ));
 
+    }
+
+    /**
+     * Return role base on path
+     *
+     * @param $path
+     *
+     * @return Role $role
+     */
+    private function generateRole($path)
+    {
+        $role = new Role();
+
+        switch ($path) {
+            case '/register':
+                $role->setRole('staff');
+                break;
+
+            default:
+        }
+        return $role;
     }
 
 

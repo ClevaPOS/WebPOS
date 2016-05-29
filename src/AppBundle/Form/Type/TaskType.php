@@ -34,7 +34,6 @@ class TaskType extends AbstractType
             'allow_add'    => true,
             'by_reference' => false,
         ));
-
         $builder->add('save', SubmitType::class, array('label' => 'Save'));
 
     }

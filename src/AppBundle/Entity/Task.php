@@ -39,6 +39,11 @@ class Task
         return $this->id;
     }
 
+    public function setID($task_id)
+    {
+        $this->id = $task_id;
+    }
+
     /**
      * Set description
      *

@@ -12,24 +12,29 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Doctrine\ORM\EntityRepository;
 
 
 
-
-
 class RoleType extends AbstractType
 {
+
+    private $role;
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
+        $this->role = $options['data']->getRole();
+
         $builder->add('role', EntityType::class, array(
             'query_builder' => function (EntityRepository $er) {
-                return $er->createQueryBuilder('r')->where('r.id = :id')->setParameter('id', 1);
+                return $er->createQueryBuilder('r')->where('r.role = :role')->setParameter('role', $this->role );
             },
                 'class' => 'POSBundle\Entity\Role',
-
+            'attr' => array(
+                'class' => 'hidden'
+            ),
                 'label' => false,
             )
         );
@@ -47,6 +52,5 @@ class RoleType extends AbstractType
             'data_class' => 'POSBundle\Entity\Role',
         ));
     }
-
 
 }

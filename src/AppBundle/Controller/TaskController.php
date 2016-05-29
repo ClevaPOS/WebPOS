@@ -9,6 +9,7 @@
 namespace AppBundle\Controller;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,15 +33,32 @@ class TaskController extends Controller
         $task->getTags()->add($tag1);
 
 
-        $form = $this->createForm(TaskType::class, $task);
+        $form = $this->createForm(TaskType::class, $task, array('roles' => 1));
+
 
         $form->handleRequest($request);
 
+
+
+//        $tags = $description->getTa
+
         if ($form->isValid()) {
+
+            $data = $form->getData();
+
+            $description = $data->getDescription();
+
+            $tags = new ArrayCollection();
+
+            $tags = $data->getTags();
+
+            foreach ($tags as $tag) {
+                $tag->addTask($description);
+            }
 
 
             $em = $this->getDoctrine()->getManager();
-            $em->persist($task);
+            $em->persist($tag);
             $em->flush();
         }
 
