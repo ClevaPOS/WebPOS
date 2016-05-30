@@ -27,6 +27,7 @@ class RoleType extends AbstractType
 
         $this->role = $options['data']->getRole();
 
+
         $builder->add('role', EntityType::class, array(
             'query_builder' => function (EntityRepository $er) {
                 return $er->createQueryBuilder('r')->where('r.role = :role')->setParameter('role', $this->role );

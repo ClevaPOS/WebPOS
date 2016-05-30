@@ -72,4 +72,6 @@ assetic:
     use_controller: false
     bundles:        [ POSBundle, AppBundle ]
     filters:
+        scssphp:
+            formatter: 'Leafo\ScssPhp\Formatter\Compressed'
         cssrewrite: ~

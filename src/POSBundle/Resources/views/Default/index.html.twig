@@ -5,14 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         {% block javascripts %}
-            {% javascripts '@POSBundle/Resources/public/js/*' %}
+            {% javascripts '@POSBundle/Resources/public/assets/scss/bootstrap/assets/javascripts/bootstrap.js'
+                            '@POSBundle/Resources/public/assets/js/*'
+            %}
                 <script src="{{ asset_url }}"></script>
             {% endjavascripts %}
         {% endblock %}
 
         {% block stylesheets %}
-            {% stylesheets filter='cssrewrite'
-                '@POSBundle/Resources/public/css/*'%}
+            {% stylesheets filter='cssrewrite,scssphp'
+                '@POSBundle/Resources/public/assets/scss/bootstrap/assets/stylesheets/_bootstrap.scss'
+                '@POSBundle/Resources/public/assets/scss/font-awesome/scss/font-awesome.scss'
+
+            %}
                 <link rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets%}
         {% endblock stylesheets %}
@@ -24,7 +29,6 @@
     <body>
 
         <div class="container-fluid">
-
 
             {% block message %}{% endblock %}
 
